@@ -51,14 +51,15 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+void free_stack(stack_t *head);
+void free_stack_wrapper(stack_t **stack, unsigned int line_number);
+int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
 char  *clean_line(char *content);
 void push(stack_t **head, unsigned int number);
 void pall(stack_t **head, unsigned int number);
 void pint(stack_t **head, unsigned int number);
-int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
-void free_stack(stack_t *head);
 void pop(stack_t **head, unsigned int counter);
 void swap(stack_t **head, unsigned int counter);
 void add(stack_t **head, unsigned int counter);
